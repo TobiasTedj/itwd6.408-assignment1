@@ -1,0 +1,69 @@
+.xml-rules {
+  display: block;
+  width: 100%;
+}
+
+.xml-rule,
+.xml-title,
+.xml-heading,
+.xml-description,
+.xml-example {
+  display: block;
+}
+
+.xml-rule {
+  background-color: rgb(232, 232, 232);
+  margin-right: 2em;
+  margin-bottom: 2em;
+  border: 2px solid black;
+}
+
+.xml-title {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.xml-subtitle {
+  margin-bottom: 10px;
+}
+
+.xml-heading {
+  font-weight: bold;
+  font: size 1.2em;
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+.xml-description {
+  padding: 2px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.xml-example {
+  padding: 2px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: blue;
+  font-style: italic;
+}
+
+/* Add media query */
+/* Apply mobile first approach */
+
+@media screen and (min-width: 768px) {
+  xml-rules {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  rule {
+    width: 45%;
+  }
+
+  title,
+  subtitle {
+    width: 100%;
+  }
+}

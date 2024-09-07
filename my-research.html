@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITWD6.408 Assignment 1</title>
+
+    <!--Insert Bootstrap CSS here-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+
+    <!--Insert Bootstrap icons CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!--Insert own styles-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <!--Add the search area containing search box and search button-->
+    <div
+      class="collapse"
+      style="background-color: var(--navbar-color)"
+      id="collapseSearchBox">
+      <form>
+        <label>Search</label>
+        <input class="m-2" type="search" id="searchBarInput" />
+      </form>
+    </div>
+
+    <!--Navbar area-->
+    <!--Website: getboostrap.com -> components -> Navbar: https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav
+      class="navbar navbar-expand-lg"
+      style="height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <!--Tagline - insert a globe icon in front of the tagline-->
+        <a class="navbar-brand" href="index.html">
+          <span class="fs-3 bi bi-globe"></span>
+          ITWD6.408
+        </a>
+
+        <!--Insert the search icon button: ONLY SHOWN ON SMALL DEVICES, hidden in big devices-->
+        <button
+          class="btn d-inline d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+
+        <!--Button: text on it is a sandwich icon-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Collapse navbar-->
+        <!--Centralize the navbar on big screen-->
+        <div
+          class="collapse navbar-collapse d-lg-flex justify-content-center z-3"
+          id="navbarNavAltMarkup">
+          <div
+            class="navbar-nav w-50 float-end justify-content-center"
+            style="background-color: var(--navbar-color)">
+            <a class="nav-link text-end" href="index.html">HOME</a>
+            <a class="nav-link text-end" href="forms.html">FORMS</a>
+            <a class="nav-link text-end" href="xml-rss.html">XML/RSS</a>
+            <a class="nav-link text-end" href="js-demo.html">JAVASCRIPT</a>
+            <a
+              class="nav-link text-end bg-warning"
+              aria-current="page"
+              href="#">
+              RESEARCH
+            </a>
+          </div>
+        </div>
+
+        <!--Insert the search icon button: ONLY SHOWN ON BIG DEVICES, hidden in small devices-->
+        <button
+          class="btn d-none d-lg-inline"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Research flip boxes -->
+      <div class="container-fluid flip-box-container">
+        <div class="row h-100">
+          <!-- Create 3 responsive columns -->
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <h3>COPYRIGHT, CREATIVE COMMON (CC) LICENSES, FAIR USE</h3>
+                  <div class="d-flex justify-content-center align-items-end">
+                    <img
+                      src="Images/research_images/copyright.jpg"
+                      width="350px" />
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <p>
+                      Copyright is a form of intellectual property right. It
+                      gives the person who creates an original work exclusive
+                      rights to copy, publish, publicly perform, transmit and
+                      adapt their material.
+                      <sup>[1]</sup>
+                    </p>
+                    <p>
+                      Copyright applies automatically from when your work is
+                      created/published, and, in most circumstances, lasts for
+                      your lifetime plus 50 years.
+                      <sup>[2]</sup>
+                    </p>
+                    <p>
+                      Creative Commons (CC) is a non-profit organisation that
+                      enables sharing and reuse of creators works through legal
+                      means. CC Licenses are copyright licenses with
+                      standardised terms developed by CC that allow creators who
+                      want to share their work to do so, while still retaining
+                      some rights.
+                      <sup>[3]</sup>
+                    </p>
+                    <p>
+                      Examples of CC Licenses:
+                      <sup>[4]</sup>
+                    </p>
+                    <ul>
+                      <li>CC BY: Credit must be given to the author.</li>
+                      <li>
+                        CC BY-SA: Credit must be given to the author.
+                        Adaptations must be shared under the same terms.
+                      </li>
+                      <li>
+                        CC BY-NC: Credit must be given to the author. Only
+                        noncommercial uses of the work are permitted.
+                      </li>
+                      <li>
+                        CC BY-ND: Credit must be given to the author. No
+                        derivatives or adaptations of the work are permitted.
+                      </li>
+                    </ul>
+                    <p>
+                      "Fair Use" does not apply within NZ. The term "Fair Use"
+                      is an American term within an American Application. But NZ
+                      does have a similar equivalent called "Fair Dealing",
+                      however, it is more strict in terms of its definition and
+                      application. Both deal with the use of copyrighted works
+                      but while "Fair Use" can be quite vague and each case of
+                      copyright infringement under the argument of "Fair Use"
+                      must be examined on a case-by-case basis, "Fair Dealing"
+                      is a stricter set of guidelines on what copyrighted
+                      material can and cannot be used without the express
+                      permission of the copyright holder.
+                      <sup>[5]</sup>
+                    </p>
+                    <br />
+                    <a
+                      href="https://www.copyright.co.nz/understanding-copyright/what-is-copyright">
+                      [1]
+                      https://www.copyright.co.nz/understanding-copyright/what-is-copyright
+                    </a>
+                    <br />
+                    <a href="https://www.iponz.govt.nz/get-ip/copyright/">
+                      [2] https://www.iponz.govt.nz/get-ip/copyright/
+                    </a>
+                    <br />
+                    <a href="https://creativecommons.org/faq/">
+                      [3] https://creativecommons.org/faq/
+                    </a>
+                    <br />
+                    <a
+                      href="https://creativecommons.org/share-your-work/cclicenses/">
+                      [4]
+                      https://creativecommons.org/share-your-work/cclicenses/
+                    </a>
+                    <br />
+                    <a
+                      href="https://www.copyright.co.nz/about/news-and-blog/whats-fair-use-and-does-it-apply-in-nz">
+                      [5]
+                      https://www.copyright.co.nz/about/news-and-blog/whats-fair-use-and-does-it-apply-in-nz
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <div class="row">
+                    <!-- <div class="col-12">
+                    </div> -->
+                    <h3 class="col-12">PRIVACY AND PRIVACY POLICIES</h3>
+                    <div
+                      class="col-12 d-flex justify-content-center align-items-end">
+                      <img
+                        src="Images/research_images/privacy.jpg"
+                        width="350px" />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <p>
+                      A privacy policy is a legal document that explains how an
+                      organization handles any customer, client or employee
+                      information gathered in its operations.
+                      <sup>[1]</sup>
+                    </p>
+                    <p>Some of the things a privacy policy can include:</p>
+                    <ul>
+                      <li>What is considered personal information.</li>
+                      <li>
+                        Types of data collected - name, date of birth, location
+                        etc.
+                      </li>
+                      <li>How data is collected.</li>
+                      <li>How the data will be used.</li>
+                      <li>If the data will be disclosed internally.</li>
+                      <li>
+                        If the data will be disclosed externally to
+                        third-parties.
+                      </li>
+                      <li>Cookies and how their used</li>
+                      <li>How the data will be stored and protected.</li>
+                      <li>How to opt out and request deletion.</li>
+                      <li>Date the policy comes into effect.</li>
+                      <li>Contact information for privacy-related requests.</li>
+                      <li>
+                        List of user rights in regards to personal information
+                        collected.
+                      </li>
+                      <li>
+                        How changes to the privacy policy will be communicated.
+                      </li>
+                    </ul>
+                    <br />
+                    <a
+                      href="https://www.techtarget.com/whatis/definition/privacy-policy">
+                      [1]
+                      https://www.techtarget.com/whatis/definition/privacy-policy
+                    </a>
+
+                    <br />
+                    <a
+                      href="https://www.termsfeed.com/blog/privacy-policy-needs-to-include/">
+                      https://www.termsfeed.com/blog/privacy-policy-needs-to-include/
+                    </a>
+                    <br />
+                    <a
+                      href="https://www.nlgcommercial.nz/privacy-policy/#:~:text=We%20collect%2C%20hold%2C%20use%20and,and%20new%20products%20and%20services">
+                      https://www.nlgcommercial.nz/privacy-policy/#:~:text=We%20collect%2C%20hold%2C%20use%20and,and%20new%20products%20and%20services
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <h3>WEBSITE SEO</h3>
+                  <div class="d-flex justify-content-center align-items-end">
+                    <img src="Images/research_images/seo.jpg" width="350px" />
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <p>
+                      SEO stands for Search Engine Optimisation. It describes
+                      designs, implementations and techniques that improve your
+                      websites visibility in search engine results e.g. where it
+                      places on a Google search result page. Better SEO means
+                      that search engines are able to more easily identify the
+                      content in your website and what it has to offer. This is
+                      extremely important when trying to grow your audience and
+                      potential customers because when people search for a
+                      topic, content, service etc. online, most people only take
+                      into consideration the top few results on the result page.
+                      Better SEO means search engines have a more accurate
+                      understanding of your website and can relay that
+                      information better to search engine users.
+                    </p>
+                    <p>5 ways to improve SEO:</p>
+                    <ol>
+                      <li>
+                        Organise your website: For example, make sure HTML tags
+                        are being implemented correctly. When search engines
+                        analyse your site, they use things like header tags to
+                        determine the relevance and importance of content on
+                        your site.
+                      </li>
+                      <li>
+                        Keywords: Keep in mind what kind of search terms users
+                        may input and use that as a basis for determining
+                        keywords to include in your website. This will make your
+                        website content more relevant to those you want to
+                        target.
+                      </li>
+                      <li>
+                        Optomise for mobile: Ensure your website is
+                        mobile-responsive and offers a seamless user experience
+                        on smartphones and tablets
+                      </li>
+                      <li>
+                        Metadata: Webpages can contain metadata between the
+                        &lt;head&gt; tags. Metadata carries information about
+                        the contents of your page, such as title, description
+                        etc. It is important this metadata is accurate for
+                        search engines as this is also used to determine
+                        relevancy of content.
+                      </li>
+                      <li>
+                        Alt tags: Make sure any media on your website has alt
+                        tags/alternative text descriptions. This is the short
+                        description of the image or video on your webpage that
+                        is used by search engines to determine what it is
+                        actually showing, since they are unable to determine
+                        what the image or video is without a description. When
+                        users search for an image of something, search engines
+                        know exactly what the images on your website is because
+                        of the alt tag and can then show that to user if it is
+                        relevant.
+                      </li>
+                    </ol>
+                    <br />
+                    <a
+                      href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">
+                      https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+                    </a>
+                    <br />
+                    <a href="https://www.mtu.edu/umc/services/websites/seo/">
+                      https://www.mtu.edu/umc/services/websites/seo/
+                    </a>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <h3>WEB HOSTING/PUBLISHING</h3>
+                  <div class="d-flex justify-content-center align-items-end">
+                    <img
+                      src="Images/research_images/web-hosting.jpg"
+                      width="350px" />
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <h5>
+                      5 factors to consider when choosing a web hosting service:
+                    </h5>
+                    <ol>
+                      <li>
+                        Reliability and Uptime: Look for a provider with a good
+                        record of stability, reliability and offers a high
+                        uptime guarantee (>99%). This ensures that your website
+                        will be available to visitors effectively at all times.
+                      </li>
+                      <li>
+                        Speed: Look for a provider that offers good loading
+                        speed. This not only improves user experience for
+                        visitors, but relates back to SEO, as search engines
+                        like Google prioritise faster loading websites.
+                      </li>
+                      <li>
+                        Customer Support: Ensure that the provider has a good
+                        customer support reputation. Look for things like 24/7
+                        support and/or multiple contact channels (live chat,
+                        phone, email). When something does go wrong with your
+                        website, troubleshooting quickly is important to
+                        minimise downtime as much as possible.
+                      </li>
+                      <li>
+                        Scalability: Depending on your intentions for your
+                        website, you may want to choose a provider that is able
+                        to scale and grow with your needs in the future. Look
+                        for a provider that can not only meet that growth
+                        demand, but makes it easy to upgrade in the future.
+                      </li>
+                      <li>
+                        Data Integrity and Security: Make sure the provider you
+                        choose provides security features such as traffic
+                        encryption between your website and visitors. Features
+                        like a backup service is important for making sure that
+                        recovery is possible in case of data loss or similar
+                        issues.
+                      </li>
+                    </ol>
+                    <br />
+                    <a
+                      href="https://rockcontent.com/blog/how-to-choose-a-web-host/">
+                      https://rockcontent.com/blog/how-to-choose-a-web-host/
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <h3>WEB PERFORMANCE AND MAINTENANCE</h3>
+                  <div class="d-flex justify-content-center align-items-end">
+                    <img
+                      src="Images/research_images/web-performance.jpg"
+                      width="350px" />
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <h5>
+                      5 things to do to improve website performance and reduce
+                      page loading time:
+                    </h5>
+                    <ol>
+                      <li>
+                        Optimise images: Altering the format and dimensions of
+                        images on your website can decrease their file size and
+                        improve their load times.
+                      </li>
+                      <li>
+                        Minimise HTTP requests: Every time a page loads up, it
+                        needs to download components of that page (e.g. images,
+                        stylesheets, scripts). Minimising the amount of things
+                        you need to download will reduce your load times. For
+                        example, where possible, you can combine stylesheets to
+                        reduce the number of requests and downloads.
+                      </li>
+                      <li>
+                        Use HTTP caching: Store static files such as Javascript
+                        and CSS in the browsers cache so that they can load
+                        recently visited websites faster.
+                      </li>
+                      <li>
+                        Optimise JavaScript and CSS: JavaScript and CSS should
+                        be stored in external files so they can be stored in the
+                        cache for faster loading. Also ensure that you take
+                        advantage of asynchronous loading. JS and CSS files can
+                        load asynchronously, meaning that while your website
+                        makes a request for files, it won't have to wait for the
+                        reply before moving on and doing the next thing it needs
+                        to do. It will be able to load multiple files at the
+                        same time, speeding up the page's performance.
+                      </li>
+                      <li>
+                        Limit the use of external scripts: Every time a page
+                        loads, any scripted webpage elements from and external
+                        source need to be loaded as well. Depending on the size,
+                        these can slow a webpage down.
+                      </li>
+                    </ol>
+                    <h5>5 things to do for web maintenance:</h5>
+                    <ol>
+                      <li>
+                        Backups: Make regular backups of your website. Make your
+                        own backps on top of any backup service provided by the
+                        web host provider.
+                      </li>
+                      <li>
+                        Keep your website updated: Make sure content on your
+                        website is always as relevant and up-to-date as
+                        possible. This helps with SEO and encourages visitors to
+                        return and use your website.
+                      </li>
+                      <li>
+                        Maintain links: If you have any links on your website to
+                        third parties/external services, make sure they still
+                        work after setting it up. Links can go dead for various
+                        reasons so regular check that they all still work as
+                        intended.
+                      </li>
+                      <li>
+                        Test browser compatibility: Browsers are constantly
+                        being updated with new standards and features. Regularly
+                        check your website is still compatible with as many
+                        different browsers and browser versions as possible.
+                      </li>
+                      <li>
+                        Review analytics and statistics: Keep track of your
+                        websites performance and traffic to gain insight on how
+                        your website is performing and if there are any areas
+                        you can improve on.
+                      </li>
+                    </ol>
+                    <br />
+                    <a
+                      href="https://www.cloudflare.com/learning/performance/speed-up-a-website/">
+                      https://www.cloudflare.com/learning/performance/speed-up-a-website/
+                    </a>
+                    <br />
+                    <a
+                      href="https://www.webfx.com/blog/web-design/decrease-webpage-load-times/">
+                      https://www.webfx.com/blog/web-design/decrease-webpage-load-times/
+                    </a>
+                    <br />
+                    <a
+                      href="https://blog.hubspot.com/marketing/how-to-reduce-your-websites-page-speed">
+                      https://blog.hubspot.com/marketing/how-to-reduce-your-websites-page-speed
+                    </a>
+                    <br />
+                    <a
+                      href="https://www.gmrwebteam.com/blog/8-regular-website-maintenance-tasks-for-peak-performance">
+                      https://www.gmrwebteam.com/blog/8-regular-website-maintenance-tasks-for-peak-performance
+                    </a>
+                    <br />
+                    <a
+                      href="https://www.webfx.com/blog/web-design/website-maintenance-checklist/">
+                      https://www.webfx.com/blog/web-design/website-maintenance-checklist/
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-4 d-flex justify-content-center align-items-center py-2">
+            <div class="research-flip-box">
+              <div class="flip-box-inner border border-2 border-warning">
+                <div class="flip-box-front bg-warning-subtle">
+                  <h3>WEB SECURITY</h3>
+                  <div class="d-flex justify-content-center align-items-end">
+                    <img
+                      src="Images/research_images/web-security.jpg"
+                      width="300px" />
+                  </div>
+                </div>
+                <div
+                  class="flip-box-back scrollable bg-warning-subtle d-flex px-1">
+                  <div class="content text-start">
+                    <h5>5 common cyber atacks:</h5>
+                    <ol>
+                      <li>
+                        Malware: Malware is any code or programme designed to
+                        damage or control a computer system. There are many
+                        forms of malware such as ransomware, spyware and
+                        trojans. These are all designed to harm your system,
+                        whether that's restricting functionality or stealing
+                        data.
+                      </li>
+                      <li>
+                        Denial-of-Service (DoS) attacks: A DoS attack is a
+                        targeted attack that inundates a server or network with
+                        an extremely large amount of requests, overwhelming the
+                        system. As the system tries to handle the number of
+                        requests, resources are entirely used up and real
+                        requests become impossible to resolve, disrupting
+                        operations. This costs businesses time and money to
+                        resolve. A Distributed Denial-of-Service attack (DDoS)
+                        is the same as DoS attack but instead of the fake
+                        requests coming from one source, the system is attacked
+                        from multiple sources. This makes it harder to resolve
+                        the attack as multiple sources need to be blocked for
+                        normal operations to resume.
+                      </li>
+                      <li>
+                        Phishing: Phishing is a cyber attack that tries to trick
+                        victims into downloading malware or sharing sensitive
+                        information such as log in credentials, account numbers
+                        etc. There are many types of phishing scams, but most
+                        commonly the phisher will pose as person or entity such
+                        as a bank or postal company and contact the victim via
+                        email, sms, phone etc. They will ask them to click on a
+                        link to "reset their password", download an "important
+                        file" or "claim a missing package", all of which could
+                        ultimately lead the victim into mistakenly downloading a
+                        virus or share sensitive information.
+                      </li>
+                      <li>
+                        Spoofing: Similar to phishing, this cyber attack
+                        involves a malicious party posing as someone the victim
+                        knows to lull them into a false sense of security. They
+                        can pose as coworkers, friends or family members. The
+                        attacker will try and get the victim to divulge
+                        sensitive information, send them money or give them
+                        access to the victims devices remotely.
+                      </li>
+                      <li>
+                        Code injection attacks: Attackers will try to inject
+                        malicious code into vulnerable systems and applications
+                        to alter its behaviour and functionality. For example,
+                        an SQL injection takes advantage of system
+                        vulnerabilities to inject SQL statemnets into the system
+                        to try and compromise the systems database. This can
+                        result in altered, lost or stolen information.
+                      </li>
+                    </ol>
+                    <br />
+                    <a
+                      href="https://www.crowdstrike.com/cybersecurity-101/cyberattacks/most-common-types-of-cyberattacks/">
+                      https://www.crowdstrike.com/cybersecurity-101/cyberattacks/most-common-types-of-cyberattacks/
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Policy Modal -->
+      <div
+        class="modal fade"
+        id="privacyPolicyModal"
+        tabindex="-1"
+        aria-labelledby="privacyPolicyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="privacyPolicyModalLabel">
+                PRIVACY POLICY
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              This Privacy Policy outlines how we collect, store, and use your
+              personal information.
+              <ol>
+                <li style="font-weight: bold">PERSONAL INFORMATION</li>
+                <p>
+                  Personal information has the same meaning as defined in the
+                  Privacy Act 1993. This can include any information that can be
+                  used to personally identify you.
+                </p>
+                <li style="font-weight: bold">
+                  TYPES OF PERSONAL INFORMATION COLLECTED
+                </li>
+                <p>
+                  Types of personal information collected can include, but is
+                  not limited to:
+                </p>
+                <ul>
+                  <li>Name</li>
+                  <li>Address</li>
+                  <li>Location</li>
+                  <li>Email address</li>
+                  <li>Telephone number</li>
+                  <li>Age or date of birth</li>
+                  <li>Profession</li>
+                </ul>
+                <li style="font-weight: bold">HOW INFORMATION IS COLLECTED</li>
+                <p>
+                  By filling out and submitting any forms on this webpage, you
+                  agree that we may collect the information provided by you.
+                </p>
+                <li style="font-weight: bold">USE OF PERSONAL INFORMATION</li>
+                <p>
+                  The personal information collected from you will be used for
+                  research and study purposes, to better understand trends in
+                  society.
+                </p>
+                <li style="font-weight: bold">COOKIES</li>
+                <p>
+                  Our website uses cookies to enhance your browsing experience.
+                  You can disable cookies through your browser settings, but
+                  this may affect the functionality of our site.
+                </p>
+                <li style="font-weight: bold">
+                  USE OF PERSONAL INFORMATION FOR COMMUNICATION
+                </li>
+                <p>
+                  By providing your email address, you agree to receive follow
+                  up emails, promotional or informational, from. You can opt out
+                  at any time through the unsubscribe link in the emails.
+                </p>
+                <li style="font-weight: bold">
+                  DISCLOSURE OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We do not sell, trade, or otherwise transfer your personal
+                  information to outside parties, except when required by law or
+                  to provide services you requested.
+                </p>
+                <li style="font-weight: bold">
+                  PROTECTION OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We take responsibility of your personal information seriosuly,
+                  and will ensure that the personal information we hold is
+                  protected from misuse, loss or unauthorised access.
+                </p>
+                <li style="font-weight: bold">
+                  YOUR RIGHTS TO ACCESS YOUR PERSONAL INFORMATION
+                </li>
+                <p>
+                  You have the right to access, correct, or delete your personal
+                  information. You can request this by contacting us through the
+                  details provided on our website.
+                </p>
+                <li style="font-weight: bold">CHANGES TO THIS POLICY</li>
+                <p>
+                  We reserve the right to update or modify this Privacy Policy
+                  at any time. Changes will be posted on this page with an
+                  updated effective date.
+                </p>
+                <li style="font-weight: bold">CONTACT INFORMATION</li>
+                <p>
+                  If you have any questions or concerns regarding this Privacy
+                  Policy, please contact us at fakeemail@address.com.
+                </p>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Footer area-->
+    <footer style="min-height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center" style="min-height: 10vh">
+          <div
+            class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+            <!--Insert media social icons: facebook, linkedin, instagram-->
+            <a href="https://www.facebook.com/">
+              <span
+                class="fs-1 bi bi-facebook m-1"
+                style="color: rgb(66 103 178)"></span>
+            </a>
+            <a href="https://www.linkedin.com/">
+              <span
+                class="fs-1 bi bi-linkedin m-1"
+                style="color: rgb(10 102 194)"></span>
+            </a>
+            <a href="https://www.instagram.com/">
+              <span
+                class="fs-1 bi bi-instagram m-1"
+                style="color: rgb(225 48 108)"></span>
+            </a>
+            <a href="https://www.youtube.com/">
+              <span class="fs-1 bi bi-youtube m-1" style="color: red"></span>
+            </a>
+            <a href="https://www.x.com/">
+              <span
+                class="fs-1 bi bi-twitter-x m-1"
+                style="color: black"></span>
+            </a>
+          </div>
+
+          <div
+            class="col-9 col-lg-4 d-flex justify-content-end justify-content-lg-center author">
+            @2024 TOBIAS TEDJAMUKTI
+          </div>
+          <div
+            class="col-3 col-lg-4 d-flex justify-content-center justify-content-lg-end fw-bold policy">
+            <a
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#privacyPolicyModal">
+              PRIVACY POLICY
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $("#xmlContentButton").css("background", "rgb(255, 193, 7)");
+        // Handle the HTML Form button click
+        $("#xmlContentButton").on("click", function () {
+          $("#xmlContent").collapse("show");
+          $("#xmlContentButton").css("background", "rgb(255, 193, 7)");
+          $("#rssContent").collapse("hide");
+          $("#rssContentButton").css("background", "white");
+        });
+
+        if ($("#xmlContent").is(":hidden")) {
+          $("#xmlContentButton").hover(
+            function () {
+              $(this).css("background", "rgb(232, 232, 232)");
+            },
+            function () {
+              $(this).css("background", "white");
+            }
+          );
+        }
+        // Handle the Google Form button click
+        $("#rssContentButton").on("click", function () {
+          $("#xmlContent").collapse("hide");
+          $("#rssContentButton").css("background", "rgb(255, 193, 7)");
+          $("#rssContent").collapse("show");
+          $("#xmlContentButton").css("background", "white");
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#searchBarInput").on("keyup", function () {
+          // Get the entered keywords and toggle the content which contains the keywords
+          let keywords = $(this).val().toLowerCase();
+          // Loop through all the <div> and check if its content contains keywords or not
+          $("#xmlRules div").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(keywords) > -1);
+          });
+          $("#rssArticles div").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(keywords) > -1);
+          });
+        });
+      });
+    </script>
+
+    <!--Insert Bootstrap Javascript and JQuery-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

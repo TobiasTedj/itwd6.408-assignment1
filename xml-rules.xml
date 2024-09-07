@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-rules>
+    <title>XML Syntax Rules</title>
+    <subtitle>Six important rules that must be adhered to in order to create a valid XML file:</subtitle>
+    <rule>
+        <heading>Rule 1: XML Documents Must Have a Root Element</heading>
+        <description>XML documents must contain one root &#160;element that is the parent of all other elements.</description>
+        <example><![CDATA[<root>
+            &#160;&#160;&#160;&#160;<child>
+                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<subchild>.....</subchild>
+            &#160;&#160;&#160;&#160;</child>
+        </root>]]></example>
+    </rule>
+
+    <rule>
+        <heading>Rule 2: The XML Prolog</heading>
+        <description>The XML prolog is optional. If it exists, it must come first in the document. XML documents can contain international characters, like Norwegian øæå or French êèé. To avoid errors, you should specify the encoding used, or save your XML files as UTF-8. UTF-8 is the default character encoding for XML documents.</description>
+        <example><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></example>
+    </rule>
+
+    <rule>
+        <heading>Rule 3: All XML Elements Must Have a Closing Tag</heading>
+        <description>In XML, it is illegal to omit the closing tag. All elements must have a closing tag.</description>
+        <example><![CDATA[<p>This is a paragraph.</p>
+        <br />]]></example>
+    </rule>
+
+    <rule>
+        <heading>Rule 4: XML Tags are Case Sensitive</heading>
+        <description>XML tags are case sensitive. The tag &lt;Letter&gt; is different from the tag &lt;letter&gt;. Opening and closing tags must be written with the same case.</description>
+        <example><![CDATA[<message>This is correct</message>]]></example>
+    </rule>
+
+    <rule>
+        <heading>Rule 5: XML Elements Must be Properly Nested</heading>
+        <description>In XML, all elements must be properly nested within each other.</description>
+        <example><![CDATA[<b><i>This text is bold and italic</i></b>]]></example>
+    </rule>
+
+    <rule>
+        <heading>Rule 6: XML Attribute Values Must Always be Quoted</heading>
+        <description>XML elements can have attributes in name/value pairs just like in HTML. In XML, the attribute values must always be quoted.</description>
+        <example><![CDATA[<note date="12/11/2007">
+            &#160;&#160;&#160;&#160;<to>Tove</to>
+            &#160;&#160;&#160;&#160;<from>Jani</from>
+        </note>]]></example>
+    </rule>
+</xml-rules>

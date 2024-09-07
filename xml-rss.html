@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITWD6.408 Assignment 1</title>
+
+    <!--Insert Bootstrap CSS here-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+
+    <!--Insert Bootstrap icons CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!--Insert own styles-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <!--Add the search area containing search box and search button-->
+    <div
+      class="collapse"
+      style="background-color: var(--navbar-color)"
+      id="collapseSearchBox">
+      <form>
+        <label>Search</label>
+        <input class="m-2" type="search" id="searchBarInput" />
+      </form>
+    </div>
+
+    <!--Navbar area-->
+    <!--Website: getboostrap.com -> components -> Navbar: https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav
+      class="navbar navbar-expand-lg"
+      style="height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <!--Tagline - insert a globe icon in front of the tagline-->
+        <a class="navbar-brand" href="index.html">
+          <span class="fs-3 bi bi-globe"></span>
+          ITWD6.408
+        </a>
+
+        <!--Insert the search icon button: ONLY SHOWN ON SMALL DEVICES, hidden in big devices-->
+        <button
+          class="btn d-inline d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+
+        <!--Button: text on it is a sandwich icon-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Collapse navbar-->
+        <!--Centralize the navbar on big screen-->
+        <div
+          class="collapse navbar-collapse d-lg-flex justify-content-center z-3"
+          id="navbarNavAltMarkup">
+          <div
+            class="navbar-nav w-50 float-end justify-content-center"
+            style="background-color: var(--navbar-color)">
+            <a class="nav-link text-end" href="index.html">HOME</a>
+            <a class="nav-link text-end" href="forms.html">FORMS</a>
+            <a
+              class="nav-link text-end bg-warning"
+              aria-current="page"
+              href="#">
+              XML/RSS
+            </a>
+            <a class="nav-link text-end" href="js-demo.html">JAVASCRIPT</a>
+            <a class="nav-link text-end" href="my-research.html">RESEARCH</a>
+          </div>
+        </div>
+
+        <!--Insert the search icon button: ONLY SHOWN ON BIG DEVICES, hidden in small devices-->
+        <button
+          class="btn d-none d-lg-inline"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="row me-0" style="min-height: 80vh">
+      <div class="col-12 col-md-3">
+        <div class="row mx-2">
+          <!--First button: XML Content-->
+          <button
+            class="col-6 col-md-12 my-1 btn text-black border-black"
+            type="button"
+            id="xmlContentButton"
+            aria-expanded="false"
+            aria-controls="xmlContent">
+            XML Rules
+          </button>
+          <!--Second button: RSS Content-->
+          <button
+            class="col-6 col-md-12 my-1 btn text-black border-black"
+            type="button"
+            id="rssContentButton"
+            aria-expanded="false"
+            aria-controls="rssContent">
+            RSS
+          </button>
+        </div>
+      </div>
+
+      <!--XML Content-->
+      <div class="col-12 col-md-9 m-0 px-0">
+        <div class="collapse show" id="xmlContent">
+          <div class="card card-body" style="min-height: 80vh">
+            <div class="row" id="xmlRulesHeading"></div>
+            <div class="row" id="xmlRules"></div>
+
+            <script>
+              $(document).ready(function () {
+                $.ajax({
+                  method: "GET",
+                  url: "xml-rules.xml",
+                  dataType: "xml",
+                  error: function (e) {
+                    alert("An error occurred while processing the XML file");
+                    console.log("XML reading Failed: ", e);
+                  },
+                  success: function (xml) {
+                    // download successfully xml file and assign it to "xml"
+                    // make sure the div "xml_rules" is empty before appending data into it
+                    $("#xmlRulesHeading").empty();
+                    $("#xmlRules").empty();
+
+                    // Get the title and subtitle and append to div
+                    var title = $(xml).find("title").text();
+                    var subtitle = $(xml).find("subtitle").text();
+
+                    $("#xmlRulesHeading").append(
+                      '<div class="col-12">' +
+                        '<h2 class="xml-title">' +
+                        title +
+                        "</h2>" +
+                        '<p class="xml-subtitle">' +
+                        subtitle +
+                        "</p>" +
+                        "</div>"
+                    );
+
+                    //Find the "item" element in the RSS file
+                    $(xml)
+                      .find("rule")
+                      .each(function () {
+                        //Each rule, do something
+                        //Extract heading, description, example
+                        var heading = $(this).find("heading").text();
+                        var description = $(this).find("description").text();
+                        var example = $(this).find("example").text();
+
+                        example = example.replace(
+                          /[<>\n\t]/g,
+                          function (match) {
+                            switch (match) {
+                              case "<":
+                                return "&lt;";
+                              case ">":
+                                return "&gt;";
+                              case "\n":
+                                return "<br>";
+                              case "\t":
+                                return "&emsp;";
+                            }
+                          }
+                        );
+
+                        //Display those info on the webpage
+                        $("#xmlRules").append(
+                          '<div class="col-12 col-md-6 p-2">' +
+                            "<div class='xml-rule h-100'>" +
+                            "<h4 class='xml-heading'>" +
+                            heading +
+                            "</h4>" +
+                            "<p class='xml-description'>" +
+                            description +
+                            "</p>" +
+                            "<p class='xml-example'>" +
+                            example +
+                            "</p>" +
+                            "</div>" +
+                            "</div>"
+                        );
+                      });
+                  },
+                });
+              });
+            </script>
+          </div>
+        </div>
+
+        <!-- RSS Content -->
+        <div class="collapse" id="rssContent">
+          <div class="card card-body" style="min-height: 80vh">
+            <h2 style="font-weight: bold">Work with an XML RSS Feed</h2>
+
+            <p>Use JQuery to download RSS file from other website</p>
+            <p>
+              REQUEST FOR CORS PERMISSION
+              <a href="https://cors-anywhere.herokuapp.com/corsdemo">
+                https://cors-anywhere.herokuapp.com/corsdemo
+              </a>
+            </p>
+            <p>
+              RSS: FETCH ARTICLES FROM WEBSITE:
+              <a href="https://www.nasa.gov/rss/dyn/educationnews.rss">
+                https://www.nasa.gov/rss/dyn/educationnews.rss
+              </a>
+            </p>
+
+            <div class="row" id="rssArticles"></div>
+
+            <script>
+              let proxy = "https://cors-anywhere.herokuapp.com/";
+              let rssUrl = "https://www.nasa.gov/rss/dyn/educationnews.rss";
+
+              //Load RSS file
+              $.ajax({
+                method: "GET",
+                url: proxy + rssUrl,
+                dataType: "xml",
+                error: function (e) {
+                  alert("An error occurred while processing the XML file");
+                  console.log("XML reading Failed: ", e);
+                },
+                success: function (xml) {
+                  //download successfully rss file and assign it to "xml"
+                  //Find the "item" element in the RSS file
+                  $(xml)
+                    .find("item")
+                    .each(function () {
+                      //Each item (article), do something
+                      //Extract article title/link/published date/...
+                      var title = $(this).find("title").text();
+                      var link = $(this).find("link").text();
+                      var description = $(this).find("description").text();
+                      var date = $(this).find("pubDate").text();
+
+                      //Display those info on the webpage
+                      $("#rssArticles").append(
+                        '<div class="col-12 col-md-6 p-2">' +
+                          '<div class="p-1 m-1 bg-secondary-subtle border border-black border-2 h-100">' +
+                          "<h4>" +
+                          title +
+                          "</h4>" +
+                          "<p>" +
+                          description +
+                          "</p>" +
+                          "<a href= '" +
+                          link +
+                          "'>" +
+                          link +
+                          "</a>" +
+                          "<br>" +
+                          "<p class='text-success fst-italic'>" +
+                          date +
+                          "</p>" +
+                          "</div>" +
+                          "</div>"
+                      );
+                    });
+                },
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Policy Modal -->
+      <div
+        class="modal fade"
+        id="privacyPolicyModal"
+        tabindex="-1"
+        aria-labelledby="privacyPolicyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="privacyPolicyModalLabel">
+                PRIVACY POLICY
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              This Privacy Policy outlines how we collect, store, and use your
+              personal information.
+              <ol>
+                <li style="font-weight: bold">PERSONAL INFORMATION</li>
+                <p>
+                  Personal information has the same meaning as defined in the
+                  Privacy Act 1993. This can include any information that can be
+                  used to personally identify you.
+                </p>
+                <li style="font-weight: bold">
+                  TYPES OF PERSONAL INFORMATION COLLECTED
+                </li>
+                <p>
+                  Types of personal information collected can include, but is
+                  not limited to:
+                </p>
+                <ul>
+                  <li>Name</li>
+                  <li>Address</li>
+                  <li>Location</li>
+                  <li>Email address</li>
+                  <li>Telephone number</li>
+                  <li>Age or date of birth</li>
+                  <li>Profession</li>
+                </ul>
+                <li style="font-weight: bold">HOW INFORMATION IS COLLECTED</li>
+                <p>
+                  By filling out and submitting any forms on this webpage, you
+                  agree that we may collect the information provided by you.
+                </p>
+                <li style="font-weight: bold">USE OF PERSONAL INFORMATION</li>
+                <p>
+                  The personal information collected from you will be used for
+                  research and study purposes, to better understand trends in
+                  society.
+                </p>
+                <li style="font-weight: bold">COOKIES</li>
+                <p>
+                  Our website uses cookies to enhance your browsing experience.
+                  You can disable cookies through your browser settings, but
+                  this may affect the functionality of our site.
+                </p>
+                <li style="font-weight: bold">
+                  USE OF PERSONAL INFORMATION FOR COMMUNICATION
+                </li>
+                <p>
+                  By providing your email address, you agree to receive follow
+                  up emails, promotional or informational, from. You can opt out
+                  at any time through the unsubscribe link in the emails.
+                </p>
+                <li style="font-weight: bold">
+                  DISCLOSURE OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We do not sell, trade, or otherwise transfer your personal
+                  information to outside parties, except when required by law or
+                  to provide services you requested.
+                </p>
+                <li style="font-weight: bold">
+                  PROTECTION OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We take responsibility of your personal information seriosuly,
+                  and will ensure that the personal information we hold is
+                  protected from misuse, loss or unauthorised access.
+                </p>
+                <li style="font-weight: bold">
+                  YOUR RIGHTS TO ACCESS YOUR PERSONAL INFORMATION
+                </li>
+                <p>
+                  You have the right to access, correct, or delete your personal
+                  information. You can request this by contacting us through the
+                  details provided on our website.
+                </p>
+                <li style="font-weight: bold">CHANGES TO THIS POLICY</li>
+                <p>
+                  We reserve the right to update or modify this Privacy Policy
+                  at any time. Changes will be posted on this page with an
+                  updated effective date.
+                </p>
+                <li style="font-weight: bold">CONTACT INFORMATION</li>
+                <p>
+                  If you have any questions or concerns regarding this Privacy
+                  Policy, please contact us at fakeemail@address.com.
+                </p>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Footer area-->
+    <footer style="min-height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center" style="min-height: 10vh">
+          <div
+            class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+            <!--Insert media social icons: facebook, linkedin, instagram-->
+            <a href="https://www.facebook.com/">
+              <span
+                class="fs-1 bi bi-facebook m-1"
+                style="color: rgb(66 103 178)"></span>
+            </a>
+            <a href="https://www.linkedin.com/">
+              <span
+                class="fs-1 bi bi-linkedin m-1"
+                style="color: rgb(10 102 194)"></span>
+            </a>
+            <a href="https://www.instagram.com/">
+              <span
+                class="fs-1 bi bi-instagram m-1"
+                style="color: rgb(225 48 108)"></span>
+            </a>
+            <a href="https://www.youtube.com/">
+              <span class="fs-1 bi bi-youtube m-1" style="color: red"></span>
+            </a>
+            <a href="https://www.x.com/">
+              <span
+                class="fs-1 bi bi-twitter-x m-1"
+                style="color: black"></span>
+            </a>
+          </div>
+
+          <div
+            class="col-9 col-lg-4 d-flex justify-content-end justify-content-lg-center author">
+            @2024 TOBIAS TEDJAMUKTI
+          </div>
+          <div
+            class="col-3 col-lg-4 d-flex justify-content-center justify-content-lg-end fw-bold policy">
+            <a
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#privacyPolicyModal">
+              PRIVACY POLICY
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $("#xmlContentButton").css("background", "rgb(255, 193, 7)");
+        // Handle the HTML Form button click
+        $("#xmlContentButton").on("click", function () {
+          $("#xmlContent").collapse("show");
+          $("#xmlContentButton").css("background", "rgb(255, 193, 7)");
+          $("#rssContent").collapse("hide");
+          $("#rssContentButton").css("background", "white");
+        });
+
+        if ($("#xmlContent").is(":hidden")) {
+          $("#xmlContentButton").hover(
+            function () {
+              $(this).css("background", "rgb(232, 232, 232)");
+            },
+            function () {
+              $(this).css("background", "white");
+            }
+          );
+        }
+        // Handle the Google Form button click
+        $("#rssContentButton").on("click", function () {
+          $("#xmlContent").collapse("hide");
+          $("#rssContentButton").css("background", "rgb(255, 193, 7)");
+          $("#rssContent").collapse("show");
+          $("#xmlContentButton").css("background", "white");
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#searchBarInput").on("keyup", function () {
+          // Get the entered keywords and toggle the content which contains the keywords
+          let keywords = $(this).val().toLowerCase();
+          // Loop through all the <div> and check if its content contains keywords or not
+          $("#xmlRules div").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(keywords) > -1);
+          });
+          $("#rssArticles div").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(keywords) > -1);
+          });
+        });
+      });
+    </script>
+
+    <!--Insert Bootstrap Javascript and JQuery-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

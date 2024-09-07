@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITWD6.408 Assignment 1</title>
+
+    <!--Insert Bootstrap CSS here-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous" />
+
+    <!--Insert Bootstrap icons CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!--Insert own styles-->
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <!--Add the search area containing search box and search button-->
+    <div
+      class="collapse"
+      style="background-color: var(--navbar-color)"
+      id="collapseSearchBox">
+      <form>
+        <input type="search" />
+        <button class="btn btn-outline-success" type="submit">SEARCH</button>
+      </form>
+    </div>
+
+    <!--Navbar area-->
+    <!--Website: getboostrap.com -> components -> Navbar: https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav
+      class="navbar navbar-expand-lg"
+      style="height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <!--Tagline - insert a globe icon in front of the tagline-->
+        <a class="navbar-brand" href="index.html">
+          <span class="fs-3 bi bi-globe"></span>
+          ITWD6.408
+        </a>
+
+        <!--Insert the search icon button: ONLY SHOWN ON SMALL DEVICES, hidden in big devices-->
+        <button
+          class="btn d-inline d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+
+        <!--Button: text on it is a sandwich icon-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Collapse navbar-->
+        <!--Centralize the navbar on big screen-->
+        <div
+          class="collapse navbar-collapse d-lg-flex justify-content-center z-3"
+          id="navbarNavAltMarkup">
+          <div
+            class="navbar-nav w-50 float-end justify-content-center"
+            style="background-color: var(--navbar-color)">
+            <a class="nav-link text-end" href="index.html">HOME</a>
+            <a
+              class="nav-link text-end bg-warning"
+              aria-current="page"
+              href="#">
+              FORMS
+            </a>
+            <a class="nav-link text-end" href="xml-rss.html">XML/RSS</a>
+            <a class="nav-link text-end" href="js-demo.html">JAVASCRIPT</a>
+            <a class="nav-link text-end" href="my-research.html">RESEARCH</a>
+          </div>
+        </div>
+
+        <!--Insert the search icon button: ONLY SHOWN ON BIG DEVICES, hidden in small devices-->
+        <button
+          class="btn d-none d-lg-inline"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearchBox">
+          <span class="bi bi-search fs-3"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="row me-0" style="min-height: 80vh">
+      <div class="col-12 col-md-3">
+        <div class="row mx-2">
+          <!--First button: HTML FORM-->
+          <button
+            class="col-6 col-md-12 my-1 btn text-black border-black"
+            type="button"
+            id="htmlFormButton"
+            aria-expanded="false"
+            aria-controls="htmlForm">
+            HTML FORM
+          </button>
+          <!--Second button: GOOGLE FORM-->
+          <button
+            class="col-6 col-md-12 my-1 btn text-black border-black"
+            type="button"
+            id="googleFormButton"
+            aria-expanded="false"
+            aria-controls="googleForm">
+            GOOGLE FORM
+          </button>
+        </div>
+      </div>
+
+      <!--Form section-->
+      <div class="col-12 col-md-9 px-0">
+        <!-- HTML Form -->
+        <div class="collapse show" id="htmlForm">
+          <div
+            class="card card-body bg-secondary-subtle"
+            style="min-height: 80vh">
+            <form>
+              <!--Name-->
+              <div class="row mb-3">
+                <label for="firstname" class="col-sm-2 col-form-label">
+                  First Name:
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    required />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="lastname" class="col-sm-2 col-form-label">
+                  Last Name:
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastname"
+                    required />
+                </div>
+              </div>
+
+              <!--Address section-->
+              <div class="row">
+                <p class="col-sm-2 mb-0 mt-2 fs-5 fw-bold">Address</p>
+              </div>
+              <div class="row mb-3">
+                <label for="addressLineOne" class="col-sm-2 col-form-label">
+                  Line 1:
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="addressLineOne"
+                    required />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="addressLineTwo" class="col-sm-2 col-form-label">
+                  Line 2:
+                </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="addressLineTwo" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="townCity" class="col-sm-2 col-form-label">
+                  Town/City:
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="townCity"
+                    required />
+                </div>
+              </div>
+
+              <!--Gender-->
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Gender:</legend>
+                <div class="col-sm-10">
+                  <div class="row mx-0">
+                    <div class="form-check col-3 col-lg-2">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        value="male"
+                        checked
+                        required />
+                      <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check col-3 col-lg-2">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        value="female" />
+                      <label class="form-check-label" for="female">
+                        Female
+                      </label>
+                    </div>
+                    <div class="form-check col-3 col-lg-2">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="genderOther"
+                        value="other" />
+                      <label class="form-check-label" for="genderOther">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!--Mobile Phone Type-->
+              <div class="row mb-3">
+                <label for="mobilePhoneType" class="col-sm-2 col-form-label">
+                  Mobile Phone Type:
+                </label>
+                <div class="col-sm-10">
+                  <div class="row mx-0" style="padding-top: 7px">
+                    <div class="form-check col-3 col-lg-2 me-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="phoneWindows" />
+                      <label class="form-check-label" for="phoneWindows">
+                        Windows
+                      </label>
+                    </div>
+                    <div class="form-check col-3 col-lg-2 me-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="phoneApple" />
+                      <label class="form-check-label" for="phoneApple">
+                        Apple
+                      </label>
+                    </div>
+                    <div class="form-check col-3 col-lg-2 me-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="phoneAndroid" />
+                      <label class="form-check-label" for="phoneAndroid">
+                        Android
+                      </label>
+                    </div>
+                    <div class="form-check col-3 col-lg-2 me-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="phoneOther" />
+                      <label class="form-check-label" for="phoneOther">
+                        Other
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Mobile Provider-->
+              <div class="row mb-3">
+                <label for="mobileProvider" class="col-sm-2 col-form-label">
+                  Mobile Provider:
+                </label>
+                <div class="col-sm-10 ps-0">
+                  <div class="row mx-0" style="padding-top: 7px">
+                    <div class="col-5 col-lg-3">
+                      <select
+                        class="form-select"
+                        aria-label="Select mobile provider"
+                        id="mobileProvider">
+                        <option selected>None</option>
+                        <option>One NZ</option>
+                        <option>Spark</option>
+                        <option>2degrees</option>
+                        <option>Now</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comment area -->
+              <div class="row mb-3">
+                <label for="commentTextArea" class="col-sm-2 col-form-label">
+                  Do you use your phone for study? Please explain:
+                </label>
+                <div class="form-floating col-sm-10">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="commentTextArea"
+                    style="height: 100px"></textarea>
+                </div>
+              </div>
+
+              <!--Submit and reset button-->
+              <button type="reset" class="btn btn-primary">Reset</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <!--Google Form-->
+        <div class="collapse" id="googleForm">
+          <div
+            class="card card-body bg-secondary-subtle"
+            style="min-height: 80vh">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScBpz2HOXBCp1sPYasNipMVG8GmouDbUhJ2_dQcGAjxK8U0gQ/viewform?embedded=true"
+              width="100%"
+              height="520"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0">
+              Loading…
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Privacy Policy Modal -->
+      <div
+        class="modal fade"
+        id="privacyPolicyModal"
+        tabindex="-1"
+        aria-labelledby="privacyPolicyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="privacyPolicyModalLabel">
+                PRIVACY POLICY
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              This Privacy Policy outlines how we collect, store, and use your
+              personal information.
+              <ol>
+                <li style="font-weight: bold">PERSONAL INFORMATION</li>
+                <p>
+                  Personal information has the same meaning as defined in the
+                  Privacy Act 1993. This can include any information that can be
+                  used to personally identify you.
+                </p>
+                <li style="font-weight: bold">
+                  TYPES OF PERSONAL INFORMATION COLLECTED
+                </li>
+                <p>
+                  Types of personal information collected can include, but is
+                  not limited to:
+                </p>
+                <ul>
+                  <li>Name</li>
+                  <li>Address</li>
+                  <li>Location</li>
+                  <li>Email address</li>
+                  <li>Telephone number</li>
+                  <li>Age or date of birth</li>
+                  <li>Profession</li>
+                </ul>
+                <li style="font-weight: bold">HOW INFORMATION IS COLLECTED</li>
+                <p>
+                  By filling out and submitting any forms on this webpage, you
+                  agree that we may collect the information provided by you.
+                </p>
+                <li style="font-weight: bold">USE OF PERSONAL INFORMATION</li>
+                <p>
+                  The personal information collected from you will be used for
+                  research and study purposes, to better understand trends in
+                  society.
+                </p>
+                <li style="font-weight: bold">COOKIES</li>
+                <p>
+                  Our website uses cookies to enhance your browsing experience.
+                  You can disable cookies through your browser settings, but
+                  this may affect the functionality of our site.
+                </p>
+                <li style="font-weight: bold">
+                  USE OF PERSONAL INFORMATION FOR COMMUNICATION
+                </li>
+                <p>
+                  By providing your email address, you agree to receive follow
+                  up emails, promotional or informational, from. You can opt out
+                  at any time through the unsubscribe link in the emails.
+                </p>
+                <li style="font-weight: bold">
+                  DISCLOSURE OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We do not sell, trade, or otherwise transfer your personal
+                  information to outside parties, except when required by law or
+                  to provide services you requested.
+                </p>
+                <li style="font-weight: bold">
+                  PROTECTION OF PERSONAL INFORMATION
+                </li>
+                <p>
+                  We take responsibility of your personal information seriosuly,
+                  and will ensure that the personal information we hold is
+                  protected from misuse, loss or unauthorised access.
+                </p>
+                <li style="font-weight: bold">
+                  YOUR RIGHTS TO ACCESS YOUR PERSONAL INFORMATION
+                </li>
+                <p>
+                  You have the right to access, correct, or delete your personal
+                  information. You can request this by contacting us through the
+                  details provided on our website.
+                </p>
+                <li style="font-weight: bold">CHANGES TO THIS POLICY</li>
+                <p>
+                  We reserve the right to update or modify this Privacy Policy
+                  at any time. Changes will be posted on this page with an
+                  updated effective date.
+                </p>
+                <li style="font-weight: bold">CONTACT INFORMATION</li>
+                <p>
+                  If you have any questions or concerns regarding this Privacy
+                  Policy, please contact us at fakeemail@address.com.
+                </p>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer style="min-height: 10vh; background-color: var(--navbar-color)">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center" style="min-height: 10vh">
+          <div
+            class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+            <!--Insert media social icons: facebook, linkedin, instagram-->
+            <a href="https://www.facebook.com/">
+              <span
+                class="fs-1 bi bi-facebook m-1"
+                style="color: rgb(66 103 178)"></span>
+            </a>
+            <a href="https://www.linkedin.com/">
+              <span
+                class="fs-1 bi bi-linkedin m-1"
+                style="color: rgb(10 102 194)"></span>
+            </a>
+            <a href="https://www.instagram.com/">
+              <span
+                class="fs-1 bi bi-instagram m-1"
+                style="color: rgb(225 48 108)"></span>
+            </a>
+            <a href="https://www.youtube.com/">
+              <span class="fs-1 bi bi-youtube m-1" style="color: red"></span>
+            </a>
+            <a href="https://www.x.com/">
+              <span
+                class="fs-1 bi bi-twitter-x m-1"
+                style="color: black"></span>
+            </a>
+          </div>
+
+          <div
+            class="col-9 col-lg-4 d-flex justify-content-end justify-content-lg-center author">
+            @2024 TOBIAS TEDJAMUKTI
+          </div>
+          <div
+            class="col-3 col-lg-4 d-flex justify-content-center justify-content-lg-end fw-bold policy">
+            <a
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#privacyPolicyModal">
+              PRIVACY POLICY
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $("#htmlFormButton").css("background", "rgb(255, 193, 7)");
+
+        // Handle the HTML Form button click
+        $("#htmlFormButton").click(function () {
+          $("#htmlForm").collapse("show");
+          $(this).css("background", "rgb(255, 193, 7)");
+          $("#googleForm").collapse("hide");
+          $("#googleFormButton").css("background", "white");
+        });
+
+        // Handle the Google Form button click
+        $("#googleFormButton").click(function () {
+          $("#htmlForm").collapse("hide");
+          $(this).css("background", "rgb(255, 193, 7)");
+          $("#googleForm").collapse("show");
+          $("#htmlFormButton").css("background", "white");
+        });
+      });
+    </script>
+
+    <!--Insert Bootstrap JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+:root {
+  --navbar-color: #daf7a6;
+  --showcase-color: #000000;
+  --bio-color: #ffc300;
+  --webtech-color: #ec7063;
+  --competence-color: #9cda0d;
+  --statement-color: #f27a09;
+}
+
+sup {
+  vertical-align: super;
+  font-size: small;
+}
+
+/* CSS needed for the flipboxes */
+/* The flip box container */
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.research-flip-box {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.research-flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Transform the back side */
+.flip-box-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.flip-box-back a {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.flip-box-back.scrollable {
+  max-height: 100%; /* Ensure the scrollable content doesn't exceed the container */
+  overflow-y: scroll; /* Scroll vertically if content is too large */
+}
+
+/* Responsive height adjustment for smaller screens */
+@media (max-width: 768px) {
+  .research-flip-box {
+    height: 40vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .flip-box-container {
+    height: 100vh; /* Full viewport height on large screens and above */
+  }
+}
+
+/* CSS needed for blurred background image */
+.blurred-background {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.blurred-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("Images/code-background.jpg") no-repeat center center/cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* XML styles */
+
+.xml-rules {
+  display: block;
+  width: 100%;
+}
+
+.xml-rule,
+.xml-title,
+.xml-heading,
+.xml-description,
+.xml-example {
+  display: block;
+}
+
+.xml-rule {
+  background-color: rgb(232, 232, 232);
+  margin-bottom: 2em;
+  border: 2px solid black;
+}
+
+.xml-title {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.xml-subtitle {
+  margin-bottom: 10px;
+}
+
+.xml-heading {
+  font-weight: bold;
+  font: size 1.2em;
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+.xml-description {
+  padding: 2px;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.xml-example {
+  padding: 2px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: blue;
+  font-style: italic;
+}
+
+@media screen and (max-width: 576px) {
+  .author {
+    font-size: 15px;
+  }
+  .policy {
+    font-size: 8px;
+  }
+}
